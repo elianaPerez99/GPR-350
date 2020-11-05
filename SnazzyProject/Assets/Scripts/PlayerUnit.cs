@@ -52,7 +52,7 @@ public class PlayerUnit : Particle2D
     private void Shoot()
     {
         //later add check enum for type of gun ect
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             switch (currentGun)
             {
@@ -103,7 +103,7 @@ public class PlayerUnit : Particle2D
 
     private void ChangeProjectile()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             if (currentGun == TypeGun.SPRING)
             {

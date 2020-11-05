@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SocialPlatforms.Impl;
 //Eliana
 public class Target : Particle2D
 {
     //variables
     public Vector2 xRange;
     public Vector2 yRange;
+    private int score = -1;
+    public Text scoreText;
     //functions
     // Start is called before the first frame update
     void Start()
@@ -23,5 +27,7 @@ public class Target : Particle2D
         transform.position = tempPos;
         xRange = new Vector2(transform.position.x - .75f, transform.position.x + .75f);
         yRange = new Vector2(transform.position.y - .75f, transform.position.y + .75f);
+        score++;
+        scoreText.text = "Score: " + score.ToString();
     }
 }
