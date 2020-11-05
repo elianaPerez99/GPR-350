@@ -23,7 +23,5 @@ public class Target : Particle2D
         transform.position = tempPos;
         xRange = new Vector2(transform.position.x - .75f, transform.position.x + .75f);
         yRange = new Vector2(transform.position.y - .75f, transform.position.y + .75f);
-        Debug.Log(xRange.ToString());
-        Debug.Log(yRange.ToString());
     }
 }
