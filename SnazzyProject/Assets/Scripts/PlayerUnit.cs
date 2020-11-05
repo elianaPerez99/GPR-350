@@ -19,7 +19,10 @@ public class PlayerUnit : Particle2D
     }
 
     //functions
-
+    private void Start()
+    {
+        mIsPlayer = true;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -48,7 +51,7 @@ public class PlayerUnit : Particle2D
         //later add check enum for type of gun ect
         if (Input.GetKeyDown(KeyCode.W))
         {
-            float speed = 40.0f;
+            float speed = 20.0f;
             GameObject projectile = Instantiate(ProjectilePrefabRef, transform.position, transform.rotation);
             projectile.GetComponent<Particle2D>().mAcc.y = -5.0f;
             projectile.GetComponent<Particle2D>().mVel.x = speed * Mathf.Cos((90+transform.rotation.eulerAngles.z) *Mathf.Deg2Rad);

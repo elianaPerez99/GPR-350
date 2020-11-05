@@ -9,7 +9,7 @@ public static class Integrator
     {
         pData.transform.position += (pData.mVel * Time.deltaTime);
         Vector3 resultingAcc = pData.mAcc;
-        if (!pData.mShouldIgnoreForces)
+        if (!pData.mShouldIgnoreForces && pData.accumlatedForces != new Vector3(0.0f,0.0f,0.0f))
         {
             resultingAcc += pData.accumlatedForces * (1 / pData.mMass);
         }

@@ -30,6 +30,7 @@ public static class ForceManager
             if (gen.mShouldAffectAll && !pData.mShouldIgnoreForces)
             {
                 gen.UpdateForces(pData);
+                
             }
         }
     }

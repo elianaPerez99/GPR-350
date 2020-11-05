@@ -33,5 +33,6 @@ public class ForceGenerator : MonoBehaviour
             Debug.Log(test.ToString());
             pData.accumlatedForces += (diff * (mMagnitude * proportionAway));
         }
+
     }
 }
