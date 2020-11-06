@@ -11,12 +11,15 @@ public class Particle2D : MonoBehaviour
    public Vector3 mAcc;
    public bool mShouldIgnoreForces;
    public bool mIsTarget = false;
-    public bool mIsPlayer = false;
+   public bool mIsPlayer = false;
 
    public Vector3 accumlatedForces;
 
-    private void Start()
+   public float getInverseMass() { return 1 / mMass; }
+
+   private void Start()
     {
+        
         ParticleManager.mParticles.Add(this);
     }
     private void Update()
