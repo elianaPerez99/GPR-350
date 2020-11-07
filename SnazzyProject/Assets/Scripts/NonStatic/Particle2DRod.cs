@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Cedric
 
 public class Particle2DRod : Particle2DLink
 {
@@ -13,7 +14,6 @@ public class Particle2DRod : Particle2DLink
 	{
 		float rodLength = GetCurrentLength();
 
-		//If the Rod length is correct
 		if (rodLength == mLength)
 		{
 			//do nothing since it is the right length
@@ -25,11 +25,11 @@ public class Particle2DRod : Particle2DLink
 
 			float penetration = 0;
 
-			if (rodLength > mLength)// if the rod is smaller
+			if (rodLength > mLength)
 			{
 				penetration = rodLength - mLength;
 			}
-			else if (rodLength < mLength)// if the rod is longer/larger
+			else if (rodLength < mLength)
 			{
 				diff *= -1;
 				penetration = mLength - rodLength;
@@ -39,13 +39,14 @@ public class Particle2DRod : Particle2DLink
 			Particle2DContact contact = new Particle2DContact();
 			contact.mObj1 = mObj1;
 			contact.mObj2 = mObj2;
-			contact.mContactNormal = diff;
 			contact.mRestitutionCo = mRestitution;
+			contact.mContactNormal = diff;
 			contact.mPenetration = mPenetration;
 			contact.mMove1 = new Vector3();
 			contact.mMove2 = new Vector3();
 
-			ContactResolver.addParticleContact(contact);
+			//Add contact
+			mContacts.Add(contact);
 		}
 
 	}
