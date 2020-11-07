@@ -19,7 +19,7 @@ public class BuoyancyForceGenerator : ForceGenerator
       ForceManager.AddForceGenerator(this);
    }
 
-   public override void UpdateForces(Particle2D pData)
+   public void UpdateForces(Particle2D pData)
    {
       Vector3 final = new Vector3();
 
