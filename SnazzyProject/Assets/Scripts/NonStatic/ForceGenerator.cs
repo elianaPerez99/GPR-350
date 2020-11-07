@@ -15,9 +15,9 @@ public class ForceGenerator : MonoBehaviour
     }
     private void OnDestroy()
     {
-        ForceManager.RemoveForceGenerator(this); //this leads to an error when you close the project
+        //ForceManager.RemoveForceGenerator(this); //this leads to an error when you close the project
     }
-    public void UpdateForces(Particle2D pData)
+    public virtual void UpdateForces(Particle2D pData)
     {
         Vector3 diff = transform.position - pData.transform.position;
         float range = 1000;

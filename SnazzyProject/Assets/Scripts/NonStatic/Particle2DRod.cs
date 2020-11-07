@@ -6,8 +6,8 @@ using UnityEngine;
 public class Particle2DRod : Particle2DLink
 {
 	public int mLength;
-	public int mRestitution;
-	public int mPenetration;
+	public float mRestitution;
+	public float mPenetration;
 
 
 	public override void CreateContacts(List<Particle2DContact> mContacts)

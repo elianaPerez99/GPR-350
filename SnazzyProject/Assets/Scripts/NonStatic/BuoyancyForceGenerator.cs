@@ -1,11 +1,10 @@
-﻿using System.Collections;
+﻿using Microsoft.Win32.SafeHandles;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BuoyancyForceGenerator : ForceGenerator
 {
-   public Particle2D mObj;
-
    public float mSurfaceHeight;
    public float mWaterDensity;
    float mArea;
@@ -13,17 +12,20 @@ public class BuoyancyForceGenerator : ForceGenerator
 
    private void Start()
    {
-      float radius = GetComponent<Renderer>().bounds.extents.magnitude;
-      mSubmergeDepth = radius;
-      mArea = (radius * radius) * Mathf.PI;//2D circle area formula
       ForceManager.AddForceGenerator(this);
    }
 
-   public void UpdateForces(Particle2D pData)
+   public override void UpdateForces(Particle2D pData)
    {
+      float radius = pData.gameObject.GetComponent<Renderer>().bounds.extents.magnitude;
+      mSubmergeDepth = radius;
+      mArea = (radius * radius) * Mathf.PI;//2D circle area formula
+
+      //Vector3 center = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+
       Vector3 final = new Vector3();
 
-      Vector3 pos = mObj.transform.position;
+      Vector3 pos = pData.transform.position;
 
       float damp = 1 / (mSurfaceHeight - pos.y);
 
@@ -42,7 +44,7 @@ public class BuoyancyForceGenerator : ForceGenerator
       }
 
       //Add Forces
-      mObj.accumlatedForces += final;
+      pData.accumlatedForces += final;
    }
 
    
