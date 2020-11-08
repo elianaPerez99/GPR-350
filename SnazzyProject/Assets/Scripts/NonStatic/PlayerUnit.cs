@@ -124,8 +124,9 @@ public class PlayerUnit : Particle2D
                    projectile2.GetComponent<Particle2D>().mVel.y = speed2 * Mathf.Sin((90 + transform.rotation.eulerAngles.z) * Mathf.Deg2Rad);
                    projectile2.GetComponent<Particle2D>().mMass = mass2;
                    projectile2.GetComponent<Particle2D>().mDamp = .99f;
+                   projectile1.GetComponent<Particle2D>().mShouldIgnoreForces = false;
 
-                  //Create Rod Connections
+                        //Create Rod Connections
                   Particle2DRod rodConnection = projectile1.GetComponent<Particle2DRod>();
                   rodConnection.mObj1 = projectile1.GetComponent<Particle2D>();
                   rodConnection.mObj2 = projectile2.GetComponent<Particle2D>();
@@ -136,12 +137,12 @@ public class PlayerUnit : Particle2D
 
                   //Create Second Rod
                   Particle2DRod rodConnection2 = projectile2.GetComponent<Particle2DRod>();
-                  rodConnection.mObj2 = projectile1.GetComponent<Particle2D>();
-                  rodConnection.mObj1 = projectile2.GetComponent<Particle2D>();
+                  rodConnection2.mObj2 = projectile1.GetComponent<Particle2D>();
+                  rodConnection2.mObj1 = projectile2.GetComponent<Particle2D>();
 
-                  rodConnection.mLength = rodLength;
-                  rodConnection.mPenetration = penetration;
-                  rodConnection.mRestitution = restitution;
+                  rodConnection2.mLength = rodLength;
+                  rodConnection2.mPenetration = penetration;
+                  rodConnection2.mRestitution = restitution;
 
                   break;
                 }
