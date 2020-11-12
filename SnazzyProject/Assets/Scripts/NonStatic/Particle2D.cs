@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 //Cedric and Eliana 
 public class Particle2D : MonoBehaviour
 {
-   public float mMass;
-   public float mDamp;
+   public float mMass = 1.0f;
+   public float mDamp = .99f;
    public Vector3 mVel;
    public Vector3 mAcc;
    public bool mShouldIgnoreForces;
@@ -17,14 +16,10 @@ public class Particle2D : MonoBehaviour
 
    public float getInverseMass() { return 1 / mMass; }
 
-   private void Start()
+    private void Start()
     {
-        
-        ParticleManager.mParticles.Add(this);
-    }
-    private void Update()
-    {
-        CheckTarget();
+       GameObject.FindGameObjectsWithTag("manager")[0].GetComponent<ParticleManager>().mParticles.Add(this);
+        mAcc = new Vector3(0, 0, 0);
     }
     private void FixedUpdate()
     {
@@ -34,7 +29,7 @@ public class Particle2D : MonoBehaviour
 
     private void OnDestroy()
     {
-        ParticleManager.mParticles.Remove(this);
+        GameObject.FindGameObjectsWithTag("manager")[0].GetComponent<ParticleManager>().mParticles.Remove(this);
     }
 
     private void CheckTarget()
