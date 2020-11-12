@@ -15,6 +15,7 @@ public class Target : Particle2D
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.FindGameObjectsWithTag("manager")[0].GetComponent<ParticleManager>().mParticles.Add(this);
         mIsTarget = true;
         Respawn();
     }
