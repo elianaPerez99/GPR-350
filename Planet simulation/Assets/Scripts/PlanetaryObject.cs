@@ -6,9 +6,9 @@ public class PlanetaryObject : MonoBehaviour
 {
     //Variables
     public float mMass;
-    public float mInitialVel; //we might need this we might not
-    public float mCurrentVel;
-    public float mCurrentAcc;
+    public Vector3 mInitialVel; //we might need this we might not
+    public Vector3 mCurrentVel;
+    public Vector3 mCurrentAcc;
 
     //Functions
     // Start is called before the first frame update
