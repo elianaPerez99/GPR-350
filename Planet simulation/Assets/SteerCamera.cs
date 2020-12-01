@@ -1,20 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SteerCamera : MonoBehaviour
 {
 
    public float panSpeed;
    public float rotSpeed;
-
    public float damp;
+
+   Vector3 origPos;
 
    Rigidbody rb;
 
     void Awake()
     {
        rb = GetComponent<Rigidbody>();
+      origPos = transform.position;
     }
 
 
@@ -26,6 +26,14 @@ public class SteerCamera : MonoBehaviour
 
    void HandleInput()
    {
+
+      /*  Reset Camera  */
+      if (Input.GetKeyDown(KeyCode.R))
+      {
+         transform.position = origPos;
+         transform.rotation = Quaternion.identity;
+         return;
+      }
 
       /*  Handle Camera Movement  */
 
