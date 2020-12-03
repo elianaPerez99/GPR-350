@@ -4,12 +4,33 @@ using UnityEngine;
 
 public class PlanetManager : MonoBehaviour
 {
-    //variables
-    public List<PlanetaryObject> mPlanets;
-    //pointer to the sun
-    //methods
-    private void Start()
-    {
-        mPlanets = new List<PlanetaryObject>(FindObjectsOfType<PlanetaryObject>());
-    }
+   //variables
+   public List<PlanetaryObject> mPlanets;
+   //pointer to the sun
+   public PlanetaryObject sun;
+
+   //methods
+   private void Start()
+   {
+      mPlanets = new List<PlanetaryObject>(FindObjectsOfType<PlanetaryObject>());
+   }
+
+
+   private void FixedUpdate()
+   {
+
+      foreach (PlanetaryObject item in mPlanets)
+      {
+         if (!item.Equals(sun))
+         {
+            item.mCurrentForces = UniversalGravitationGenerator.CalculateForce(sun, item);
+            UniversalGravitationGenerator.Integrate(item);
+
+         }
+
+      }
+
+   }
+
+
 }

@@ -474,6 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mPlanets: []
+  sun: {fileID: 108549698}
 --- !u!4 &1112496139
 Transform:
   m_ObjectHideFlags: 0
