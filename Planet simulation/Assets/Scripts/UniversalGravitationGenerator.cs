@@ -10,18 +10,21 @@ public static class UniversalGravitationGenerator
 
     public static Vector3 CalculateForce(PlanetaryObject bigger, PlanetaryObject smaller)
     {
-        float xMagnitude = 0;
-        float zMagnitude = 0;
-        if (smaller.transform.position.x != 0)
+        float magnitude = (float)((G * bigger.mMass * smaller.mMass) / Math.Pow(smaller.transform.position.magnitude, 2));
+        float angle = (float)Math.Atan(magnitude);
+        
+        
+        float xMagnitude = (float) Math.Cos(angle)*magnitude;
+        if (smaller.transform.position.x < 0)
         {
-            xMagnitude = (float)((G * bigger.mMass * smaller.mMass) / Math.Pow(smaller.transform.position.x, 2));
+            xMagnitude *= -1;
         }
-        if (smaller.transform.position.z != 0)
+        float zMagnitude = (float)Math.Cos(angle)*magnitude;
+        if (smaller.transform.position.z < 0)
         {
-            zMagnitude = (float)((G * bigger.mMass * smaller.mMass) / Math.Pow(smaller.transform.position.z, 2));
+            zMagnitude *= -1;
         }
-
-        return new Vector3(xMagnitude, 0.0f, zMagnitude);
+        return new Vector3(xMagnitude, 0.0f, 0.0f);
     }
 
     //get acceleration from force
