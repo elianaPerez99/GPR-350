@@ -6,7 +6,7 @@ public class PlanetManager : MonoBehaviour
 {
     //variables
     public List<PlanetaryObject> mPlanets;
-
+    //pointer to the sun
     //methods
     private void Start()
     {

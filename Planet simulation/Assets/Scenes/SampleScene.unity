@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMass: 1.989e+21
+  mCurrentForces: {x: 0, y: 0, z: 0}
   mInitialVel: {x: 0, y: 0, z: 0}
   mCurrentVel: {x: 0, y: 0, z: 0}
   mCurrentAcc: {x: 0, y: 0, z: 0}
@@ -596,6 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMass: 6.42e+13
+  mCurrentForces: {x: 0, y: 0, z: 0}
   mInitialVel: {x: 0, y: 0, z: 0}
   mCurrentVel: {x: 0, y: 0, z: 0}
   mCurrentAcc: {x: 0, y: 0, z: 0}
