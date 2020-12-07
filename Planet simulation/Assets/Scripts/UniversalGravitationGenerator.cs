@@ -9,11 +9,11 @@ public static class UniversalGravitationGenerator
 
    public static Vector3 CalculateGravForce(PlanetaryObject bigger, PlanetaryObject smaller)
    {
-      Vector3 planetDist =  smaller.transform.position - bigger.transform.position;
+      Vector3 planetDist = smaller.transform.position - bigger.transform.position;
 
       Vector3 force = (-G * bigger.mMass * smaller.mMass) / Vector3.Dot(planetDist, planetDist) * planetDist.normalized;
-        //Debug.Log("Attraction " + (-G * bigger.mMass * smaller.mMass) / Vector3.Dot(planetDist, planetDist));
-        return force;
+      //Debug.Log("Attraction " + (-G * bigger.mMass * smaller.mMass) / Vector3.Dot(planetDist, planetDist));
+      return force;
    }
 
 
@@ -44,20 +44,21 @@ public static class UniversalGravitationGenerator
       //planet.transform.position = planet.mCurrentVel * Time.deltaTime;
       planet.transform.position += planet.mInitialVel * Time.deltaTime + planet.mCurrentAcc * (float)Math.Pow(Time.deltaTime, 2) * 0.5f;
 
-     //Debug.Log("Update: " + planet.mCurrentForces);
-      
+      //Debug.Log("Update: " + planet.mCurrentForces);
+
 
    }
 
    public static void Integrate(PlanetaryObject planet)
    {
-        
-        //UpdatePosition(planet);
-        //testing
-        planet.mCurrentAcc = GetAcc(planet.mMass, planet.mCurrentForces);
-        planet.mCurrentVel += GetVel(planet.mCurrentAcc);
-        planet.transform.position += planet.mCurrentVel * Time.deltaTime;
-        planet.mCurrentForces = new Vector3(0, 0, 0);
+
+      //UpdatePosition(planet);
+      //testing
+      planet.mCurrentAcc = GetAcc(planet.mMass, planet.mCurrentForces);
+      planet.mCurrentVel += GetVel(planet.mCurrentAcc);
+      DrawForcesDirectionInEditor(planet, 10f);
+      planet.transform.position += planet.mCurrentVel * Time.deltaTime;
+      planet.mCurrentForces = new Vector3(0, 0, 0);
    }
 
    public static Vector3 SqrtVector3(Vector3 vec)
@@ -78,5 +79,17 @@ public static class UniversalGravitationGenerator
 
       return new Vector3(x, y, z);
    }
+
+   public static void DrawForcesDirectionInEditor(PlanetaryObject planet, float magnitude)
+   {
+      Vector3 center = planet.transform.position;
+      Debug.DrawRay(center, planet.mCurrentForces.normalized * magnitude, Color.red);
+      Debug.DrawRay(center, planet.mCurrentVel.normalized * magnitude, Color.blue);
+      Debug.DrawRay(center, planet.mCurrentAcc.normalized * magnitude, Color.yellow);
+
+   }
+
+   
+
 
 }

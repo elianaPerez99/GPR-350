@@ -600,7 +600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mMass: 597000
   mCurrentForces: {x: 0, y: 0, z: 0}
-  mInitialVel: {x: 0, y: 0, z: 0.9}
+  mInitialVel: {x: 0, y: 0, z: 0.925}
   mCurrentVel: {x: 0, y: 0, z: 0}
   mCurrentAcc: {x: 0, y: 0, z: 0}
 --- !u!96 &1204722761
