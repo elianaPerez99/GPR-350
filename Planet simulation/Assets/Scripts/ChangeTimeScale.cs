@@ -6,6 +6,9 @@ public class ChangeTimeScale : MonoBehaviour
 {
     //variables
     Text text;
+
+   public float stepValue = 0.1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +20,7 @@ public class ChangeTimeScale : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && Time.timeScale > .1f)
         {
-            Time.timeScale -= .1f;
+            Time.timeScale -= stepValue;
             text.text = "Time Scale: " + System.Math.Round(Time.timeScale, 1).ToString() + "x";
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -27,7 +30,7 @@ public class ChangeTimeScale : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Time.timeScale += .1f;
+            Time.timeScale += stepValue;
             text.text = "Time Scale: " + System.Math.Round(Time.timeScale, 1).ToString() + "x";
         }
     }

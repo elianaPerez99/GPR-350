@@ -23,7 +23,11 @@ public class PlanetManager : MonoBehaviour
       {
          if (!item.Equals(sun))
          {
-            item.mCurrentForces = UniversalGravitationGenerator.CalculateForce(sun, item);
+            item.mCurrentForces = UniversalGravitationGenerator.CalculateGravForce(sun, item);
+            //Debug.Log("Intergrate: " + item.mCurrentForces);
+
+
+
             UniversalGravitationGenerator.Integrate(item);
 
          }
