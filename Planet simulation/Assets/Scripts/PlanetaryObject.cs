@@ -13,7 +13,7 @@ public class PlanetaryObject : MonoBehaviour
 
     //Functions
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         mCurrentVel = mInitialVel;
     }
