@@ -580,7 +580,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204722755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 61, y: 0, z: 0}
+  m_LocalPosition: {x: 152, y: 0, z: 0}
   m_LocalScale: {x: 12.756, y: 12.756, z: 12.756}
   m_Children: []
   m_Father: {fileID: 0}
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mMass: 597000
   mCurrentForces: {x: 0, y: 0, z: 0}
-  mInitialVel: {x: 0, y: 0, z: 3}
+  mInitialVel: {x: 0, y: 0, z: 0.9}
   mCurrentVel: {x: 0, y: 0, z: 0}
   mCurrentAcc: {x: 0, y: 0, z: 0}
 --- !u!96 &1204722761
@@ -644,7 +644,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 60
+  m_Time: 60000
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -958,4 +958,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f47ac7a528df947a150d00cf9758a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepValue: 1
+  stepValue: 10

@@ -12,8 +12,8 @@ public static class UniversalGravitationGenerator
       Vector3 planetDist =  smaller.transform.position - bigger.transform.position;
 
       Vector3 force = (-G * bigger.mMass * smaller.mMass) / Vector3.Dot(planetDist, planetDist) * planetDist.normalized;
-      //Debug.Log("Attraction " + (-G * bigger.mMass * smaller.mMass) / Vector3.Dot(planetDist, planetDist));
-      return force;
+        //Debug.Log("Attraction " + (-G * bigger.mMass * smaller.mMass) / Vector3.Dot(planetDist, planetDist));
+        return force;
    }
 
 
@@ -54,7 +54,7 @@ public static class UniversalGravitationGenerator
         
         //UpdatePosition(planet);
         //testing
-        planet.mCurrentAcc += GetAcc(planet.mMass, planet.mCurrentForces);
+        planet.mCurrentAcc = GetAcc(planet.mMass, planet.mCurrentForces);
         planet.mCurrentVel += GetVel(planet.mCurrentAcc);
         planet.transform.position += planet.mCurrentVel * Time.deltaTime;
         planet.mCurrentForces = new Vector3(0, 0, 0);
@@ -78,6 +78,5 @@ public static class UniversalGravitationGenerator
 
       return new Vector3(x, y, z);
    }
-
 
 }
