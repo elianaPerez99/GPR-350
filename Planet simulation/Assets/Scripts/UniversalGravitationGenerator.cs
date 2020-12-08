@@ -51,10 +51,13 @@ public static class UniversalGravitationGenerator
 
    public static void Integrate(PlanetaryObject planet)
    {
-
-      //UpdatePosition(planet);
-      //testing
+      //for the normal planets
       planet.mCurrentAcc = GetAcc(planet.mMass, planet.mCurrentForces);
+      
+      //for moon 
+      planet.mCurrentAcc += planet.orbitingAround.mCurrentAcc;
+
+
       planet.mCurrentVel += GetVel(planet.mCurrentAcc);
       DrawForcesDirectionInEditor(planet, 10f);
       planet.transform.position += planet.mCurrentVel * Time.deltaTime;
