@@ -3,16 +3,18 @@ using UnityEngine;
 
 public static class UniversalGravitationGenerator
 {
-   public static float G = (float)(6.67408 * Math.Pow(10, -11));
+   
 
    public static Vector3 ZeroDegreeVector = Vector3.right;
 
-   public static Vector3 CalculateGravForce(PlanetaryObject bigger, PlanetaryObject smaller)
+
+   public static float G = (float)(6.67408 * Math.Pow(10, -11));
+    public static Vector3 CalculateGravForce(PlanetaryObject bigger, PlanetaryObject smaller)
    {
       Vector3 planetDist = smaller.transform.position - bigger.transform.position;
 
       Vector3 force = (-G * bigger.mMass * smaller.mMass) / Vector3.Dot(planetDist, planetDist) * planetDist.normalized;
-      //Debug.Log("Attraction " + (-G * bigger.mMass * smaller.mMass) / Vector3.Dot(planetDist, planetDist));
+
       return force;
    }
 
